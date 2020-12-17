@@ -5,6 +5,8 @@ import 'package:dsi_app/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'forget_password_page.dart';
+
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,8 @@ class LoginPage extends StatelessWidget {
             padding: Constants.paddingMedium,
             child: Text(
               'App desenvolvido por Gabriel Alves para a disciplina de'
-              ' Desenvolvimento de Sistemas de Informação do BSI/UFRPE.',
+              ' Desenvolvimento de Sistemas de Informação do BSI/UFRPE.'
+              ' Modificado pelo aluno Henrique Oliveira.',
               style: Theme.of(context).textTheme.caption.copyWith(fontSize: 12),
             ),
           )
@@ -44,13 +47,7 @@ class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
   void _forgotPassword() {
-    dsiDialog.showInfo(
-      context: context,
-      title: 'Warning',
-      message: '''Falta implementar esta função.\n'''
-          '''Agora é com você:\n'''
-          '''Implemente uma tela para esta funcionalidade!''',
-    );
+    dsiHelper.go(context, ForgetPasswordPage());
   }
 
   void _login() {
