@@ -8,6 +8,7 @@ class Constants {
   static const paddingMedium = EdgeInsets.all(12.0);
   static const spaceSmallHeight = SizedBox(height: 8.0);
   static const spaceMediumHeight = SizedBox(height: 16.0);
+  static const spaceLargeHeight = SizedBox(height: 32.0);
 }
 
 class Images {
