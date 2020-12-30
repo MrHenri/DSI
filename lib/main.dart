@@ -3,6 +3,7 @@ import 'package:dsi_app/constants.dart';
 import 'package:dsi_app/home.dart';
 import 'package:dsi_app/login.dart';
 import 'package:dsi_app/pessoa.dart';
+import 'package:dsi_app/professor.dart';
 import 'package:dsi_app/register.dart';
 import 'package:flutter/material.dart';
 
@@ -62,6 +63,8 @@ class DSIApp extends StatelessWidget {
       '/maintain_pessoa': (context) => MaintainPessoaPage(),
       '/list_aluno': (context) => ListAlunoPage(),
       '/maintain_aluno': (context) => MaintainAlunoPage(),
+      '/list_professor': (context) => ProfessorPage(),
+      '/maintain_professor': (context) => MaintainProfessorPage(),
     };
   }
 }
@@ -69,13 +72,13 @@ class DSIApp extends StatelessWidget {
 void _initDb() {
   for (var i = 1; i <= 20; i++) {
     var matricula = i.toString().padLeft(11, '0');
-    var cpf = '${matricula.substring(0, 3)}.'
+    var cpfAluno = '${matricula.substring(0, 3)}.'
         '${matricula.substring(3, 6)}.'
         '${matricula.substring(6, 9)}-'
         '${matricula.substring(9)}';
 
     var aluno = Aluno(
-      cpf: cpf,
+      cpf: cpfAluno,
       nome: 'Aluno $i',
       endereco: 'Rua $i, s/n.',
       matricula: matricula,
@@ -84,5 +87,21 @@ void _initDb() {
     //controlador de pessoa pode receber um aluno. Leia sobre polimorfismo de
     //subtipo (ou simplesmente polimorfismo).
     pessoaController.save(aluno);
+  }
+
+  for (var i = 21; i <= 40; i++) {
+    var disciplina = i.toString().padLeft(11, '0');
+    var cpfProf = '${disciplina.substring(0, 3)}.'
+        '${disciplina.substring(3, 6)}.'
+        '${disciplina.substring(6, 9)}-'
+        '${disciplina.substring(9)}';
+
+    var professor = Professor(
+      cpf: cpfProf,
+      nome: 'Professor $i',
+      endereco: 'Rua $i, s/n.',
+      disciplina: disciplina,
+    );
+    pessoaController.save(professor);
   }
 }
