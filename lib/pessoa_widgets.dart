@@ -175,7 +175,7 @@ class MaintainPessoaBodyState extends State<MaintainPessoaBody> {
         onSaved: (newValue) => endereco.logradouro = newValue,
       ),
       TextFormField(
-        keyboardType: TextInputType.text,
+        keyboardType: TextInputType.number,
         decoration: const InputDecoration(labelText: 'Número'),
         initialValue: endereco.numero,
         onSaved: (newValue) => endereco.numero = newValue,
